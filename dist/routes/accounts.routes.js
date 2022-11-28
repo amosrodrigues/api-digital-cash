@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.accountsRoutes = void 0;
+const express_1 = require("express");
+const ensureAutheticated_1 = require("../middlewares/ensureAutheticated");
+const CreateAccountController_1 = require("../modules/accounts/useCases/createAccount/CreateAccountController");
+const accountsRoutes = (0, express_1.Router)();
+exports.accountsRoutes = accountsRoutes;
+const createCategoryController = new CreateAccountController_1.CreateAccountController();
+accountsRoutes.post('/', ensureAutheticated_1.ensureAuthenticated, createCategoryController.handle);
+accountsRoutes.get('/', ensureAutheticated_1.ensureAuthenticated, createCategoryController.handle);
