@@ -1,6 +1,6 @@
 {
   "version": 2,
   "name": "api-digital-cash",
-  "builds": [{ "dist": "server.js", "use": "@vercel/node" }],
-  "routes": [{ "dist": "/(.*)", "dest": "routes/index.js" }]
+  "builds": [{ "src": "server.ts", "use": "@vercel/node" }],
+  "routes": [{ "src": "/(.*)", "dest": "routes/index.ts" }]
 }
