@@ -13,3 +13,6 @@ COPY . /usr/src/app/
 EXPOSE 3333
 
 CMD ["npm", "run", "dev"]
+
+    # "build": "rm -rf ./dist && tsc",
+    # "start": "node ./dist/server.js"
