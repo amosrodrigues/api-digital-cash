@@ -18,8 +18,6 @@
 
 <br>
 
-Projeto realizado como desafio sugerido ao processo seletivo da NG.CASH (repo. privado) 🚀
-
 Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 ### Frontend
