@@ -16,7 +16,7 @@
 
 <h1 id="tecnologias">✨ Tecnologias ✅</h1>
 
-<br>
+<br><br>
 
 Esse projeto foi desenvolvido com as seguintes tecnologias:
 
