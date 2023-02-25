@@ -117,9 +117,22 @@ class TransactionsRepository implements ITrasactionsRepository {
       },
     })
 
+    const transactionsAll = await this.repository.find({
+      relations: ['account'],
+      where: {
+        debitedAccountId: accountId,
+        creditedAccountId: accountId,
+        createdAt: Between(new Date(firstDate), new Date(lastDate)),
+      },
+      order: {
+        createdAt: 'ASC',
+      },
+    })
+
     const trasactions = {
       credited: transactionsCredited,
       debited: transactionsDebited,
+      all: transactionsAll
     }
 
     return trasactions

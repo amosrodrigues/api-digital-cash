@@ -40,7 +40,7 @@ class ListTransactionsUseCase {
       throw new AppError('Não é possível listar as transações!', 400)
     }
 
-    const { credited, debited } = transactions
+    const { credited, debited, all } = transactions
 
     const creditedList = credited.map((transaction) => ({
       id: transaction.id,
@@ -56,15 +56,24 @@ class ListTransactionsUseCase {
       createdAt: transaction.createdAt,
     }))
 
+    const trasactionsAll = all.map((transaction) => ({
+      id: transaction.id,
+      type: 'debited',
+      value: transaction.value,
+      createdAt: transaction.createdAt,
+    }))
+
+
     switch (type) {
       case 'credited':
         return creditedList
       case 'debited':
         return debitedList
       default:
-        return [...creditedList, ...debitedList].sort(
-          (a, b) => a.createdAt.getDate() - b.createdAt.getDate(),
-        )
+        return trasactionsAll
+        // return [...creditedList, ...debitedList].sort(
+        //   (a, b) => a.createdAt.getDate() - b.createdAt.getDate(),
+        // )
     }
   }
 }
