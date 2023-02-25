@@ -58,7 +58,7 @@ class ListTransactionsUseCase {
 
     const trasactionsAll = all.map((transaction) => ({
       id: transaction.id,
-      type: 'debited',
+      type: 'all',
       value: transaction.value,
       createdAt: transaction.createdAt,
     }))
