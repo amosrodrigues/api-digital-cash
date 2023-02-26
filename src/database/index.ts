@@ -1,11 +1,11 @@
-import 'reflect-metadata'
-import { DataSource } from 'typeorm'
+import 'reflect-metadata';
+import { DataSource } from 'typeorm';
 
-import { User } from '../modules/accounts/entities/User'
-import { Account } from '../modules/accounts/entities/Account'
-import { Transaction } from '../modules/transactions/entities/Transactions'
+import { User } from '../modules/accounts/entities/User';
+import { Account } from '../modules/accounts/entities/Account';
+import { Transaction } from '../modules/transactions/entities/Transactions';
 
-import 'dotenv/config'
+import 'dotenv/config';
 
 export const AppDataSource = new DataSource({
   type: 'postgres',
@@ -20,15 +20,15 @@ export const AppDataSource = new DataSource({
   entities: [User, Account, Transaction],
   migrations: [`${__dirname}/**/migrations/*.{ts,js}`],
   subscribers: [],
-})
+});
 
 // `${__dirname}/**/entities/*.{ts, js}` "entities"
 // ./src/database/migrations/*.ts
 
 AppDataSource.initialize()
   .then(() => {
-    console.log('Data Source has been initialized!')
+    console.log('Data Source has been initialized!');
   })
   .catch((err) => {
-    console.error('Error during Data Source initialization', err)
-  })
+    console.error('Error during Data Source initialization', err);
+  });
