@@ -10,6 +10,8 @@ import './shared/container'
 import { AppError } from './errors/AppError'
 import { router } from './routes'
 
+import 'dotenv/config'
+
 const app = express()
 const PORT = process.env.PORT || 3333
 

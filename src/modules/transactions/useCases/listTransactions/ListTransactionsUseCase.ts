@@ -1,20 +1,20 @@
-import { inject, injectable } from 'tsyringe'
-import { AppError } from '../../../../errors/AppError'
+import { inject, injectable } from 'tsyringe';
+import { AppError } from '../../../../errors/AppError';
 
-import { ITrasactionsRepository } from '../../repositories/ITransactionsRepository'
+import { ITrasactionsRepository } from '../../repositories/ITransactionsRepository';
 
 interface IRequest {
-  userId: string
-  startDate: string
-  endDate: string
-  type: string
+  userId: string;
+  startDate: string;
+  endDate: string;
+  type: string;
 }
 
 interface IResponse {
-  id: string
-  type: string
-  value: number
-  createdAt: Date
+  id: string;
+  type: string;
+  value: number;
+  createdAt: Date;
 }
 
 @injectable()
@@ -34,48 +34,44 @@ class ListTransactionsUseCase {
       userId,
       startDate,
       endDate,
-    })
+    });
 
     if (!transactions) {
-      throw new AppError('Não é possível listar as transações!', 400)
+      throw new AppError('Não é possível listar as transações!', 400);
     }
 
-    const { credited, debited, all } = transactions
+    const { credited, debited, all } = transactions;
 
     const creditedList = credited.map((transaction) => ({
       id: transaction.id,
       type: 'credited',
       value: transaction.value,
       createdAt: transaction.createdAt,
-    }))
+    }));
 
     const debitedList = debited.map((transaction) => ({
       id: transaction.id,
       type: 'debited',
       value: transaction.value,
       createdAt: transaction.createdAt,
-    }))
+    }));
 
     const trasactionsAll = all.map((transaction) => ({
       id: transaction.id,
       type: 'all',
       value: transaction.value,
       createdAt: transaction.createdAt,
-    }))
-
+    }));
 
     switch (type) {
       case 'credited':
-        return creditedList
+        return creditedList;
       case 'debited':
-        return debitedList
+        return debitedList;
       default:
-        return trasactionsAll
-        // return [...creditedList, ...debitedList].sort(
-        //   (a, b) => a.createdAt.getDate() - b.createdAt.getDate(),
-        // )
+        return trasactionsAll;
     }
   }
 }
 
-export { ListTransactionsUseCase }
+export { ListTransactionsUseCase };

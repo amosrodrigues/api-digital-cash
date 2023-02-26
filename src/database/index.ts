@@ -5,6 +5,8 @@ import { User } from '../modules/accounts/entities/User'
 import { Account } from '../modules/accounts/entities/Account'
 import { Transaction } from '../modules/transactions/entities/Transactions'
 
+import 'dotenv/config'
+
 export const AppDataSource = new DataSource({
   type: 'postgres',
   url: process.env.DB_URI,
