@@ -23,7 +23,7 @@ export const AppDataSource = new DataSource({
 });
 
 // `${__dirname}/**/entities/*.{ts, js}` "entities"
-// ./src/database/migrations/*.ts
+// ./src/database/migrations/*.ts /
 
 AppDataSource.initialize()
   .then(() => {
